@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -16,18 +10,38 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Global Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: white;
+  position: relative;
+  /* overflow: hidden; */
+  height: 10000px;
+}
+
+.costume-styles {
+  top: 790px !important;
+  position: static !important;
+}
+@media (min-width: 600px) {
+  .costume-styles {
+    margin-left: 50px !important;
+  }
+}
+@media (min-width: 900px) {
+  .costume-styles {
+    margin-left: 110px !important;
   }
 }
