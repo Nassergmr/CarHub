@@ -24,8 +24,8 @@ export default function Hero() {
           <Image
             className="mx-auto"
             src="/hero.png"
-            width={500}
-            height={500}
+            width={600}
+            height={600}
             alt=""
           />
         </div>

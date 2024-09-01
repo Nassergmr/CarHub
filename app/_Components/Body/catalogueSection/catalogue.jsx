@@ -1,13 +1,18 @@
 "use client";
 
-import Manufacturer from "./manufacturer";
-import { useState } from "react";
-import CarIcon from "../../../../public/model-icon.png";
-import Image from "next/image";
+import { useContext, useState } from "react";
+import Form from "./form";
+import { ManuContext } from "@/app/layout";
+import Car from "./car";
 
 export default function Catalogue() {
-  const [selected, setSelected] = useState("");
   const [query, setQuery] = useState("");
+  const [manufacturer, setManufacturer] = useContext(ManuContext);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen_2, setIsOpen_2] = useState(false);
+  const [query_2, setQuery_2] = useState("");
+  const [carModel, setCarModel] = useState("");
+  const [allModals, setAllModals] = useState(false);
 
   return (
     <div className="sm:mt-[150px] mt-[100px]">
@@ -20,34 +25,33 @@ export default function Catalogue() {
         </p>
       </div>
 
-      <div id="search_section" className="container flex gap-3">
-        <Manufacturer
+      <div id="search_section" className="">
+        <Form
           query={query}
           setQuery={setQuery}
-          selected={selected}
-          setSelected={setSelected}
+          query_2={query_2}
+          setQuery_2={setQuery_2}
+          manufacturer={manufacturer}
+          setManufacturer={setManufacturer}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          isOpen_2={isOpen_2}
+          setIsOpen_2={setIsOpen_2}
+          carModel={carModel}
+          setCarModel={setCarModel}
+          allModals={allModals}
+          setAllModals={setAllModals}
         />
+      </div>
 
-        <div
-          id="model"
-          className="relative flex items-center w-[300px] h-12 rounded-full focus-within:shadow-lg"
-        >
-          <div className="grid place-items-center h-full w-12 bg-gray-100">
-            <Image
-              src={CarIcon}
-              alt="Tire Icon"
-              width={20}
-              height={20}
-              className="bg-gray-100"
-            />
-          </div>
-          <input
-            className="peer h-full w-full outline-none text-sm bg-gray-100 text-gray-700 pr-2"
-            type="text"
-            id="search"
-            placeholder="Model..."
-          />
-        </div>
+      <div id="car_section">
+        <Car
+          manufacturer={manufacturer}
+          carModel={carModel}
+          setCarModel={setCarModel}
+          allModals={allModals}
+          setAllModals={setAllModals}
+        />
       </div>
     </div>
   );

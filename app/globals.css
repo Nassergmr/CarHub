@@ -27,21 +27,11 @@ body {
   font-family: "Open Sans", sans-serif;
   background-color: white;
   position: relative;
-  /* overflow: hidden; */
+  overflow-x: hidden;
   height: 10000px;
 }
 
 .costume-styles {
-  top: 790px !important;
-  position: static !important;
-}
-@media (min-width: 600px) {
-  .costume-styles {
-    margin-left: 50px !important;
-  }
-}
-@media (min-width: 900px) {
-  .costume-styles {
-    margin-left: 110px !important;
-  }
+  margin-top: 10px !important;
+  /* top: 773px !important; */
 }
