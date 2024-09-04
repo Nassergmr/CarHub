@@ -14,8 +14,8 @@ export default function Form({
   setQuery_2,
   carModel,
   setCarModel,
-  allModals,
-  setAllModals,
+  allModels,
+  setAllModels,
 }) {
   return (
     <div className="container flex md:flex-row flex-col  gap-3 ">
@@ -28,6 +28,10 @@ export default function Form({
         setIsOpen={setIsOpen}
         manufacturer={manufacturer}
         setManufacturer={setManufacturer}
+        allModels={allModels}
+        setAllModels={setAllModels}
+        carModel={carModel}
+        setCarModel={setCarModel}
       />
 
       {/* Modal Section */}
@@ -42,8 +46,8 @@ export default function Form({
         setManufacturer={setManufacturer}
         carModel={carModel}
         setCarModel={setCarModel}
-        allModals={allModals}
-        setAllModals={setAllModals}
+        allModels={allModels}
+        setAllModels={setAllModels}
       />
     </div>
   );

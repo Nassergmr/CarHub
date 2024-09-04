@@ -1,11 +1,11 @@
 "use client";
 
-import TireIcon from "../../../../public/car-logo.svg";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import { manufacturers } from "../../Constants/index";
 import { getCars } from "@/app/_Utils";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export default function Manufacturer({
   query,
@@ -15,8 +15,12 @@ export default function Manufacturer({
   setManufacturer,
   isOpen,
   setIsOpen,
+  setAllModels,
+  setCarModel,
 }) {
   const manufacturerRef = useRef(null);
+  const targetRef = useRef(null);
+
   const handleClickOutside = (event) => {
     if (
       manufacturerRef.current &&
@@ -60,29 +64,57 @@ export default function Manufacturer({
   useEffect(() => {
     if (query === "") {
       setQuery_2("");
+      setAllModels(false);
+      setCarModel(false);
     }
   }, [query, setQuery_2]);
 
+  const handleInputClick = () => {
+    toggleDropdown();
+    if (targetRef.current) {
+      targetRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  const ManufacturerLogo = query.toString().replace(/-/g, " ").toLowerCase();
+  const ManufacturerLogoUrl = `/svgs/${ManufacturerLogo}.svg`;
+  const isValidManufacturer = manufacturers.includes(query.trim());
+
   return (
-    <div className="relative" ref={manufacturerRef}>
+    <div className="relative w-full pt-3" ref={manufacturerRef}>
       <div
+        ref={targetRef}
         id="manufacturer"
-        className="bg-gray-100 flex items-center md:w-[400px] w-full h-12 rounded-full focus-within:shadow-lg"
+        className="bg-gray-100 flex items-center h-14 rounded-full scroll-target focus-within:shadow-lg"
       >
-        <div className="grid place-items-center rounded-full w-12 bg-gray-100">
-          <TireIcon className="w-[20px] h-[20px]" />
-        </div>
+        {isValidManufacturer && (
+          <div
+            id="img_container"
+            className="mx-[10px] w-[50px] grid place-items-center rounded-full bg-gray-100"
+          >
+            <Image
+              src={ManufacturerLogoUrl}
+              width={50}
+              height={50}
+              className="text-gray-100"
+            />
+          </div>
+        )}
         <input
           type="text"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Manufacturer..."
+          placeholder="Make..."
           className={clsx(
-            "w-full rounded-lg border-none bg-gray-100 cursor-pointer",
-            "focus:outline-none"
+            "w-full rounded-lg border-none font-semibold bg-gray-100 cursor-pointer",
+            "focus:outline-none",
+            query === "" && "ml-[40px]"
           )}
           autoComplete="off"
-          onClick={toggleDropdown}
+          onClick={handleInputClick}
         />
         <ChevronDownIcon
           onClick={toggleDropdown}

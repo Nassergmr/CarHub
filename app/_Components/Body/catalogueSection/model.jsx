@@ -13,11 +13,8 @@ export default function Model({
   query_2,
   setQuery_2,
   manufacturer,
-  // setManufacturer,
-  carModel,
   setCarModel,
-  allModals,
-  setAllModals,
+  setAllModels,
 }) {
   const modelRef = useRef(null);
 
@@ -41,39 +38,42 @@ export default function Model({
     setCarModel(model);
     setQuery_2(model); // Update the input field with the selected model
     setIsOpen_2(false); // Close the dropdown
-    setAllModals(false);
+    setAllModels(false);
   };
 
-  const handleAllModalsClick = () => {
-    setAllModals(true);
+  const handleAllModelsClick = () => {
+    setAllModels(true);
     setIsOpen_2(false);
     setQuery_2("All");
     setCarModel(false);
   };
 
   return (
-    <div ref={modelRef} className="relative">
+    <div ref={modelRef} className="relative w-full pt-3">
       <div
         id="model"
         className={clsx(
-          "bg-gray-100 py-[10px] flex items-center md:w-[400px] w-full h-12 rounded-full focus-within:shadow-lg",
-          query === "" && "bg-gray-500"
+          "bg-gray-100 py-[10px] flex items-center h-14 rounded-full focus-within:shadow-lg",
+          query === "" && "bg-gray-500 cursor-default"
         )}
       >
-        <div
-          className={clsx(
-            "grid place-items-center rounded-full w-12 bg-gray-100",
-            query === "" && "bg-gray-500"
-          )}
-        >
-          <Image
-            src={CarIcon}
-            alt="Car Icon"
-            width={20}
-            height={20}
-            className={clsx("bg-gray-100", query === "" && "hidden")}
-          />
-        </div>
+        {query !== "" && (
+          <div
+            id="img_container"
+            className={clsx(
+              "grid place-items-center rounded-full w-12 bg-gray-100 mx-[10px]",
+              query === "" && "bg-gray-500"
+            )}
+          >
+            <Image
+              src={CarIcon}
+              alt="Car Icon"
+              width={30}
+              height={30}
+              className={clsx("bg-gray-100 mb-1")}
+            />
+          </div>
+        )}
 
         <input
           type="text"
@@ -82,9 +82,9 @@ export default function Model({
           onChange={(event) => setQuery_2(event.target.value)}
           placeholder="Model..."
           className={clsx(
-            "w-full rounded-lg border-none bg-gray-100 cursor-pointer",
+            "w-full rounded-lg border-none font-semibold bg-gray-100 cursor-pointer",
             "focus:outline-none",
-            query === "" && "bg-gray-500 cursor-auto"
+            query === "" && "bg-gray-500 ml-[40px] cursor-default"
           )}
           autoComplete="off"
           onClick={toggleDropdown_2}
@@ -103,7 +103,7 @@ export default function Model({
         <div className="absolute w-full z-10 max-h-[300px] overflow-y-scroll bg-gray-100 text-black rounded-lg shadow  mt-[10px]">
           <ul className="py-2 text-sm text-black font-semibold h-auto">
             <button
-              onClick={handleAllModalsClick}
+              onClick={handleAllModelsClick}
               className=" block px-4 py-2 hover:bg-blue-700 text-blue-700 font-bold text-xl hover:text-white w-full text-left"
             >
               All
@@ -114,17 +114,11 @@ export default function Model({
               <li key={index}>
                 <button
                   className="block px-4 py-2 hover:bg-blue-700  hover:text-white w-full text-left"
-                  onClick={() =>
-                    handleModelClick(
-                      `${item.model} ${item.year} ${item.fuel_type} (${item.combination_mpg} MPG)`
-                    )
-                  }
+                  onClick={() => handleModelClick(`${item.model} ${item.year}`)}
                 >
                   {`${item.make.charAt(0).toUpperCase() + item.make.slice(1)} ${
                     item.model
-                  } ${item.year} ${item.fuel_type} (${
-                    item.combination_mpg
-                  } MPG)`}
+                  } ${item.year}`}
                 </button>
               </li>
             ))}

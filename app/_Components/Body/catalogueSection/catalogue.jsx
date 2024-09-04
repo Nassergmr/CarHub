@@ -12,7 +12,9 @@ export default function Catalogue() {
   const [isOpen_2, setIsOpen_2] = useState(false);
   const [query_2, setQuery_2] = useState("");
   const [carModel, setCarModel] = useState("");
-  const [allModals, setAllModals] = useState(false);
+  const [allModels, setAllModels] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [selectedCar, setSelectedCar] = useState(null);
 
   return (
     <div className="sm:mt-[150px] mt-[100px]">
@@ -20,7 +22,7 @@ export default function Catalogue() {
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl text-gray-800 font-bold">
           Car Catalogue
         </h1>
-        <p className="mt-1 mb-8 lg:w-10/12 text-gray-400 font-normal text-sm sm:text-base">
+        <p className="mt-1 mb-5 lg:w-10/12 text-gray-400 font-normal text-sm sm:text-base">
           Explore our cars you may like
         </p>
       </div>
@@ -39,18 +41,23 @@ export default function Catalogue() {
           setIsOpen_2={setIsOpen_2}
           carModel={carModel}
           setCarModel={setCarModel}
-          allModals={allModals}
-          setAllModals={setAllModals}
+          allModels={allModels}
+          setAllModels={setAllModels}
         />
       </div>
 
       <div id="car_section">
         <Car
+          query={query}
           manufacturer={manufacturer}
           carModel={carModel}
           setCarModel={setCarModel}
-          allModals={allModals}
-          setAllModals={setAllModals}
+          allModels={allModels}
+          setAllModels={setAllModels}
+          modal={modal}
+          setModal={setModal}
+          selectedCar={selectedCar}
+          setSelectedCar={setSelectedCar}
         />
       </div>
     </div>

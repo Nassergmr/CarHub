@@ -4,7 +4,7 @@ export async function getCars(manufacturer) {
     "x-rapidapi-host": "cars-by-api-ninjas.p.rapidapi.com",
   };
   const responce = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?limit=35&make=${manufacturer}`,
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?limit=40&make=${manufacturer}`,
     { headers: headers }
   );
   const result = await responce.json();

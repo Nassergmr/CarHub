@@ -9,7 +9,6 @@ export const manufacturers = [
   "Cadillac",
   "Chevrolet",
   "Chrysler",
-  "Citroen",
   "Dodge",
   "Ferrari",
   "Fiat",
