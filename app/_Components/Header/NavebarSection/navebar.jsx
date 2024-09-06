@@ -1,6 +1,7 @@
+"use client";
+
 import Li_navebar from "../../Elements/li_navebar";
 import LogoIcon from "../../../../public/logo.svg";
-import Button_main from "../../Elements/button_main";
 import Drawer from "./drawer";
 import Login_Modal from "../../Elements/login_modal";
 
@@ -105,9 +106,12 @@ export default function Navebar({
           </Li_navebar>
         </ul>
         <Drawer activeLink={activeLink} setActiveLink={setActiveLink} />
-        <Button_main modal={modal} setModal={setModal}>
-          Sign in
-        </Button_main>
+        <button
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          onClick={() => setModal(!modal)}
+        >
+          <span className="flex justify-center items-center">Sign In</span>
+        </button>
       </div>
       <Login_Modal modal={modal} setModal={setModal} />
     </nav>
