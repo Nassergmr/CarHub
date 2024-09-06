@@ -36,15 +36,16 @@ export default function Model({
   // Handle selecting a model from the dropdown
   const handleModelClick = (model) => {
     setCarModel(model);
-    setQuery_2(model); // Update the input field with the selected model
-    setIsOpen_2(false); // Close the dropdown
+    setQuery_2(model);
+    setIsOpen_2(false);
     setAllModels(false);
   };
 
+  // Handle selecting all models from the dropdown
   const handleAllModelsClick = () => {
     setAllModels(true);
     setIsOpen_2(false);
-    setQuery_2("All");
+    setQuery_2("All Models");
     setCarModel(false);
   };
 
@@ -104,9 +105,9 @@ export default function Model({
           <ul className="py-2 text-sm text-black font-semibold h-auto">
             <button
               onClick={handleAllModelsClick}
-              className=" block px-4 py-2 hover:bg-blue-700 text-blue-700 font-bold text-xl hover:text-white w-full text-left"
+              className=" block px-4 py-2 hover:bg-blue-700 text-blue-700 font-bold text-lg hover:text-white w-full text-left"
             >
-              All
+              All Models
             </button>
 
             <hr className="" />

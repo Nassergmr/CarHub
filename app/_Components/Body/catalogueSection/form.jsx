@@ -34,7 +34,7 @@ export default function Form({
         setCarModel={setCarModel}
       />
 
-      {/* Modal Section */}
+      {/* Model Section */}
       <Model
         query={query}
         query_2={query_2}

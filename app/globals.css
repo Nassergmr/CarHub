@@ -22,13 +22,14 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 110px;
 }
 body {
   font-family: "Open Sans", sans-serif;
   background-color: white;
   position: relative;
   overflow-x: hidden;
-  height: 10000px;
+  /* min-height: 10000px; */
 }
 
 .costume-styles {
@@ -36,5 +37,5 @@ body {
   /* top: 773px !important; */
 }
 .scroll-target {
-  scroll-margin-top: 15px;
+  /* scroll-margin-top: 100px; */
 }

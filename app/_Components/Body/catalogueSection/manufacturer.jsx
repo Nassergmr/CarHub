@@ -11,7 +11,6 @@ export default function Manufacturer({
   query,
   setQuery,
   setQuery_2,
-  manufacturer,
   setManufacturer,
   isOpen,
   setIsOpen,
@@ -55,9 +54,7 @@ export default function Manufacturer({
     const carData = await getCars(item);
     if (Array.isArray(carData)) {
       setManufacturer(carData);
-      console.log("manu data:", manufacturer);
     } else {
-      console.error("Expected carData to be an array but got:", carData);
     }
   };
 

@@ -7,7 +7,6 @@ import { useState } from "react";
 import { createContext } from "react";
 
 export const ManuContext = createContext(null);
-
 const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata = {
@@ -17,12 +16,19 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }) {
   const [manufacturer, setManufacturer] = useState([]);
+  const [activeLink, setActiveLink] = useState("");
+  const [modal, setModal] = useState(false);
 
   return (
     <html lang="en">
       <ManuContext.Provider value={[manufacturer, setManufacturer]}>
         <body className={inter.className}>
-          <Navebar />
+          <Navebar
+            activeLink={activeLink}
+            setActiveLink={setActiveLink}
+            modal={modal}
+            setModal={setModal}
+          />
           {children}
         </body>
       </ManuContext.Provider>

@@ -15,15 +15,17 @@ export default function Catalogue() {
   const [allModels, setAllModels] = useState(false);
   const [modal, setModal] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
+  const [visibleItems, setVisibleItems] = useState(8);
 
   return (
-    <div className="sm:mt-[150px] mt-[100px]">
-      <div id="title_section" className="container">
-        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl text-gray-800 font-bold">
-          Car Catalogue
+    <div className="sm:mt-[150px] mt-[100px]" id="catalogue">
+      <div id="title_section" className=" mx-auto text-center my-8">
+        <h1 className="mb-4 sm:text-4xl text-3xl tracking-tight font-extrabold text-gray-900">
+          Explore our exclusive car collection
         </h1>
-        <p className="mt-1 mb-5 lg:w-10/12 text-gray-400 font-normal text-sm sm:text-base">
-          Explore our cars you may like
+        <p className="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl ">
+          Discover cars tailored to your preferences and explore your ideal
+          ride.
         </p>
       </div>
 
@@ -58,6 +60,8 @@ export default function Catalogue() {
           setModal={setModal}
           selectedCar={selectedCar}
           setSelectedCar={setSelectedCar}
+          visibleItems={visibleItems}
+          setVisibleItems={setVisibleItems}
         />
       </div>
     </div>

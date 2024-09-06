@@ -4,24 +4,21 @@ import {
   DialogTitle,
   DialogBackdrop,
 } from "@headlessui/react";
-import Image from "next/image";
 export default function Car_Modal({ modal, setModal, carDetails }) {
   const closeModal = () => {
     setModal(false);
   };
-  console.log("car details :", carDetails);
   return (
     <Dialog
       open={modal}
       as="div"
-      className="relative z-10 focus:outline-none"
+      className="relative z-50 focus:outline-none"
       onClose={closeModal}
     >
       <DialogBackdrop className="fixed inset-0 bg-black/20" />
       <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-4">
           <DialogPanel
-            // transition
             className="w-full max-w-md rounded-xl shadow-md bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
             style={{
               transform: modal ? "scale(1)" : "scale(0.95)",
@@ -30,7 +27,7 @@ export default function Car_Modal({ modal, setModal, carDetails }) {
           >
             <div
               onClick={() => setModal(false)}
-              className="absolute cursor-pointer  right-0 p-[2px] rounded-full bg-gray-100 top-0"
+              className="absolute cursor-pointer  right-0 p-[1px] rounded-full bg-gray-100 top-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -39,8 +36,6 @@ export default function Car_Modal({ modal, setModal, carDetails }) {
                 strokeWidth={1.5}
                 stroke="currentColor"
                 className="size-8"
-                // width={30}
-                // height={30}
               >
                 <path
                   strokeLinecap="round"
