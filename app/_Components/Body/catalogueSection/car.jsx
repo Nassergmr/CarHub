@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Car_Modal from "../../Elements/car_modal";
 
