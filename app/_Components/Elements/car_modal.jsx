@@ -46,7 +46,10 @@ export default function Car_Modal({ modal, setModal, carDetails }) {
                 />
               </svg>
             </div>
-            <DialogTitle as="h3" className="text-xl mb-5 font-bold text-black">
+            <DialogTitle
+              as="h3"
+              className="text-xl mb-5 font-bold mt-5 text-black"
+            >
               {carDetails?.make.charAt(0).toUpperCase() +
                 carDetails?.make.slice(1)}{" "}
               {carDetails?.model}
