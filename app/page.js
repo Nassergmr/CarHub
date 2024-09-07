@@ -1,5 +1,5 @@
 import About from "./_Components/Body/AboutSection/about";
-import Catalogue from "./_Components/Body/CatalogueSection/catalogue.jsx";
+import Catalogue from "./_Components/Body/CatalogueSection/catalogue";
 import Contact from "./_Components/Body/ContactSection/contact";
 import Hero from "./_Components/Body/HeroSection/hero";
 import Testimonials from "./_Components/Body/TestimonialsSection/testimonials";
