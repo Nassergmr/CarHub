@@ -2,7 +2,7 @@
 
 import { useContext, useState } from "react";
 import Form from "./form";
-import { ManuContext } from "@/app/layout";
+import { ManuContext } from "../../../layout";
 import Car from "./car";
 
 export default function Catalogue() {
