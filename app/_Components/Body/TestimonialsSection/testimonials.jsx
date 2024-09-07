@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Testimonials() {
   return (
     <section className="bg-white sm:mt-[150px] mt-[100px]" id="testimonials">
@@ -26,10 +24,8 @@ export default function Testimonials() {
               </p>
             </blockquote>
             <figcaption className="flex justify-center items-center space-x-3">
-              <Image
-                width={100}
-                height={100}
-                className="rounded-full"
+              <img
+                className="rounded-full  w-36 h-36 object-cover "
                 src="/people/image-6.png"
                 alt="Customer 1"
               />
@@ -54,10 +50,8 @@ export default function Testimonials() {
               </p>
             </blockquote>
             <figcaption className="flex justify-center items-center space-x-3">
-              <Image
-                width={100}
-                height={100}
-                className="rounded-full"
+              <img
+                className="rounded-full  w-36 h-36 object-cover"
                 src="/people/image-2.png"
                 alt="Customer 2"
               />
@@ -81,10 +75,8 @@ export default function Testimonials() {
               </p>
             </blockquote>
             <figcaption className="flex justify-center items-center space-x-3">
-              <Image
-                width={100}
-                height={100}
-                className="rounded-full"
+              <img
+                className="rounded-full  w-36 h-36 object-cover"
                 src="/people/image-3.png"
                 alt="Customer 3"
               />
@@ -108,10 +100,8 @@ export default function Testimonials() {
               </p>
             </blockquote>
             <figcaption className="flex justify-center items-center space-x-3">
-              <Image
-                width={100}
-                height={100}
-                className="rounded-full"
+              <img
+                className="rounded-full  w-36 h-36 object-cover"
                 src="/people/Mikolaj-Krol-500x600-c-default.png"
                 alt="Customer 4"
               />
