@@ -14,7 +14,7 @@ export default function About() {
       </div>
 
       <div className="grid grid-col-1 lg:grid-cols-3 sm:grid-cols-2 gap-8 max-md:justify-center mt-12">
-        <div className="border rounded-md overflow-hidden w-full sm:max-w-[300px]">
+        <div className="border rounded-md overflow-hidden max-md:max-w-[300px]">
           <img
             src="https://readymadeui.com/team-1.webp"
             className="w-full h-60 object-contain object-top  bg-gray-200"
