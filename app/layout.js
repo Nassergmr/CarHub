@@ -3,7 +3,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navebar from "./_Components/Header/NavebarSection/navebar";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createContext } from "react";
 
 export const ManuContext = createContext(null);
@@ -18,6 +18,10 @@ export default function RootLayout({ children }) {
   const [manufacturer, setManufacturer] = useState([]);
   const [activeLink, setActiveLink] = useState("");
   const [modal, setModal] = useState(false);
+
+  useEffect(() => {
+    document.title = "CarHub";
+  }, []);
 
   return (
     <html lang="en">
